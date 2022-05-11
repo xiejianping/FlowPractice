@@ -74,4 +74,6 @@ dependencies {
 
     // https://github.com/Blankj/AndroidUtilCode
     implementation 'com.blankj:utilcodex:1.31.0'
+
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
 }
