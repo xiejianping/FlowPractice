@@ -10,6 +10,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.viewbinding.ViewBinding
 import com.example.flowpractice.BuildConfig
+import java.io.InputStream
+import java.io.OutputStream
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
@@ -57,6 +59,7 @@ class FragmentViewBind<F : Fragment, V : ViewBinding>(private val viewBind: (F) 
                             "--------------------------------------------------------------------------------- "
                 )
             }
+            return viewBind.invoke(thisRef)
         }
         thisRef.lifecycle.addObserver(observer)
         return viewBind.invoke(thisRef).also {
@@ -87,5 +90,22 @@ class FragmentViewBind<F : Fragment, V : ViewBinding>(private val viewBind: (F) 
                 Log.d(TAG, "${owner.javaClass.simpleName} mBinding is release")
             }
         }
+    }
+}
+
+
+inline fun InputStream.listenerCopyTo(
+    out: OutputStream,
+    progressListener: (Long) -> Unit
+) {
+    val bufferSize: Int = 8 * 1024
+    var bytesCopied: Long = 0
+    val buffer = ByteArray(bufferSize)
+    var bytes = read(buffer)
+    while (bytes >= 0) {
+        out.write(buffer, 0, bytes)
+        bytesCopied += bytes
+        progressListener(bytesCopied)
+        bytes = read(buffer)
     }
 }
