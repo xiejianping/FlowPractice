@@ -75,7 +75,6 @@ class FragmentViewBind<F : Fragment, V : ViewBinding>(private val viewBind: (F) 
     }
 
     private val observer = object : DefaultLifecycleObserver {
-//        private val handler = Handler(Looper.getMainLooper())
 
         @MainThread
         override fun onDestroy(owner: LifecycleOwner) {
@@ -83,9 +82,7 @@ class FragmentViewBind<F : Fragment, V : ViewBinding>(private val viewBind: (F) 
                 Log.d(TAG, "${owner.javaClass.simpleName} is exe onDestroy")
             }
             owner.lifecycle.removeObserver(this)
-//            handler.post {
             mBinding = null
-//            }
             if (BuildConfig.DEBUG) {
                 Log.d(TAG, "${owner.javaClass.simpleName} mBinding is release")
             }

@@ -25,10 +25,14 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mBinding.btDownload.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_downloadFragment)
+        mBinding.apply {
+            btDownload.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment_to_downloadFragment)
+            }
+            btRoom.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment_to_roomFragment)
+            }
         }
     }
-
 
 }

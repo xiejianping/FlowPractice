@@ -11,9 +11,16 @@
         <action
             android:id="@+id/action_homeFragment_to_downloadFragment"
             app:destination="@id/downloadFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_roomFragment"
+            app:destination="@id/roomFragment" />
     </fragment>
     <fragment
         android:id="@+id/downloadFragment"
         android:name="com.example.flowpractice.fragment.DownloadFragment"
         android:label="DownloadFragment" />
+    <fragment
+        android:id="@+id/roomFragment"
+        android:name="com.example.flowpractice.fragment.RoomFragment"
+        android:label="RoomFragment" />
 </navigation>
