@@ -16,8 +16,6 @@ class DbViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-
     fun findAll() = db.userDao().getAll().catch { it.printStackTrace() }.flowOn(Dispatchers.IO)
-
 
 }

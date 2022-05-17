@@ -32,6 +32,9 @@ class HomeFragment : Fragment() {
             btRoom.setOnClickListener {
                 findNavController().navigate(R.id.action_homeFragment_to_roomFragment)
             }
+            btGirl.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment_to_girlFragment)
+            }
         }
     }
 

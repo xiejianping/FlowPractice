@@ -54,13 +54,12 @@ class RoomUserAdapter : RecyclerView.Adapter<UserViewHolder>() {
 
     private var data: List<User>? = null
 
-    fun setData(data: List<User>): Unit {
+    fun setData(data: List<User>) {
         this.data = data
         notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
-
         return UserViewHolder(ItemDbUserBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
